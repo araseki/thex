@@ -30,3 +30,8 @@ Webサイトを書く労力を割くため様々なサーバ・エンジンが�
 
 ## 謎
 * コンテキストパス「thex」を排除する正しい方法：http://xxxxxx/``yyy``/index.htmlの「``yyy``」を指定したくない。
+
+## 残件
+* テンプレート場所を複数のディレクトリ指定出来るようにする。apache(ubuntu)の/etc/apache2/sites-enableみたいなイメージ。
+FileTemplateResolverをpatternつきでいくつでも追加すればいいんじゃないか。パフォーマンスもきっと問題ないに違いない。
+* いっそSpringBootみたいにTomcat同梱しちゃって実行形式jarにする？それともJettyの方がいいかな・・・
