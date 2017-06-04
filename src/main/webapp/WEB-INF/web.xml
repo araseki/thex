@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+	<display-name>Thymeleaf for contents outside of Servlet</display-name>
+	<servlet>
+		<servlet-name>outside</servlet-name>
+		<servlet-class>ara.thex.ThexServlet</servlet-class>
+		<init-param>
+			<description>placement of templates</description>
+			<param-name>base</param-name>
+			<param-value>JVM-PARAM</param-value>
+		</init-param>
+		<init-param>
+			<param-name>characterEncoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>outside</servlet-name>
+		<url-pattern>/*</url-pattern>
+	</servlet-mapping>
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+	</welcome-file-list>
+	<error-page>
+		<error-code>404</error-code>
+		<location>/404.html</location>
+	</error-page>
+	<error-page>
+		<error-code>500</error-code>
+		<location>/500.html</location>
+	</error-page>
+	<session-config>
+		<!-- HTTPセッションは使いようがないので持たないようにする -->
+		<session-timeout>0</session-timeout>
+	</session-config>
+</web-app>

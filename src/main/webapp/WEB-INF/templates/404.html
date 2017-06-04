@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="content-language" content="ja">
+<meta charset="UTF-8">
+<title>404 - NOT FOUND</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<h1>指定されたページは存在しません</h1>
+	<div class="container bg-danger">
+		<div> The requested URL was not found on this server </div>
+		<h2><span class="label label-danger" th:text="${forwardUrl}"></span></h2>
+	</div>
+</body>
+</html>
