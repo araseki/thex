@@ -4,10 +4,19 @@
 	<groupId>ara</groupId>
 	<artifactId>thex</artifactId>
 	<packaging>war</packaging>
-	<description>Thymeleaf for contents outside of Servlet</description>
+	<description>Web-server with Thymeleaf using template outside of servlet-area</description>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>thex</name>
 	<url>http://maven.apache.org</url>
+	<properties>
+		<resource.encoding>UTF-8</resource.encoding>
+		<java.source.encoding>UTF-8</java.source.encoding>
+		<output.encoding>UTF-8</output.encoding>
+		<classes.dir>target/classes</classes.dir>
+		<test.classes.dir>target/test-classes</test.classes.dir>
+		<java.source.version>1.8</java.source.version>
+		<java.target.version>1.8</java.target.version>
+	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
@@ -22,7 +31,7 @@
 		</dependency>
 		<dependency>
 			<groupId>org.thymeleaf</groupId>
-			<artifactId>thymeleaf-spring4</artifactId>
+			<artifactId>thymeleaf</artifactId>
 			<version>3.0.6.RELEASE</version>
 		</dependency>
 		<dependency>
@@ -43,5 +52,30 @@
 	</dependencies>
 	<build>
 		<finalName>thex</finalName>
+		<sourceDirectory>src/main/java</sourceDirectory>
+		<testSourceDirectory>src/test/java</testSourceDirectory>
+		<outputDirectory>${basedir}/${classes.dir}</outputDirectory>
+		<testOutputDirectory>${basedir}/${test.classes.dir}</testOutputDirectory>
+		<defaultGoal>validate</defaultGoal>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.6.1</version>
+				<configuration>
+					<source>${java.source.version}</source>
+					<target>${java.target.version}</target>
+					<encoding>${java.source.encoding}</encoding>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>3.1.0</version>
+				<configuration>
+					<warSourceDirectory>${basedir}/src/main/webapp</warSourceDirectory>
+					<warSourceExcludes>WEB-INF/classes/**,WEB-INF/lib/**</warSourceExcludes>
+				</configuration>
+			</plugin>
+		</plugins>
 	</build>
 </project>
